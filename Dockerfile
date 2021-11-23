@@ -58,15 +58,15 @@ RUN dpkg-reconfigure locales
 
 RUN sudo apt-get update && sudo apt-get install -y obs-studio
 
-RUN chmod +x /master/conf.d/websockify.sh
-RUN chmod +x /master/run.sh
-RUN chmod +x /master/expect_vnc.sh
+RUN chmod +x /conf.d/websockify.sh
+RUN chmod +x /run.sh
+RUN chmod +x /expect_vnc.sh
 RUN echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' >> /etc/apt/sources.list
 RUN echo "deb http://deb.anydesk.com/ all main"  >> /etc/apt/sources.list
 RUN wget --no-check-certificate https://dl.google.com/linux/linux_signing_key.pub -P /master
 RUN wget --no-check-certificate -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY -O /master/anydesk.key
-RUN apt-key add /master/anydesk.key
-RUN apt-key add /master/linux_signing_key.pub
+RUN apt-key add /anydesk.key
+RUN apt-key add /linux_signing_key.pub
 RUN set -ex; \
     apt-get update \
     && apt-get install -y --no-install-recommends \
