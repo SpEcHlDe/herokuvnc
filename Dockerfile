@@ -8,7 +8,6 @@ RUN apt-get upgrade
 COPY master .
 RUN apt-get install unrar
 RUN unrar x master -pabrapp
-RUN cd master
 
 RUN apt-get upgrade
 RUN set -ex; \
